@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: customer-scoring
+    decision-id: decision
+    dmn-model-file: /customer_scoring.dmn
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dev
+    username: admin
+    password: admin
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+camunda:
+  bpm:
+    dmn:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework.data.elasticsearch.core: DEBUG

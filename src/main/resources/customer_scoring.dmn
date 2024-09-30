@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:camunda="http://camunda.org/schema/1.0/dmn"
+             id="definitions"
+             name="ClientEvaluation"
+             namespace="http://camunda.org/schema/1.0/dmn"
+             exporter="Camunda Modeler"
+             exporterVersion="7.21.0">
+
+    <decision id="decision" name="Customer Scoring Decision">
+        <decisionTable id="decisionTable" hitPolicy="COLLECT">
+            <input id="innInput">
+                <inputExpression id="innInputExpression" typeRef="string">
+                    <text>inn</text>
+                </inputExpression>
+            </input>
+            <input id="regionInput">
+                <inputExpression id="regionInputExpression" typeRef="integer">
+                    <text>region</text>
+                </inputExpression>
+            </input>
+            <input id="capitalInput">
+                <inputExpression id="capitalInputExpression" typeRef="number">
+                    <text>capital</text>
+                </inputExpression>
+            </input>
+            <output id="resultOutput" name="result" typeRef="boolean" />
+            <output id="innResult" name="innResult" typeRef="string" />
+            <output id="regionResult" name="regionResult" typeRef="string" />
+            <output id="capitalResult" name="capitalResult" typeRef="string" />
+            <output id="residentResult" name="residentResult" typeRef="string" />
+            <rule id="rule1">
+                <inputEntry id="innRule1">
+                    <text>string length(inn) = 12</text>
+                </inputEntry>
+                <inputEntry id="regionRule1">
+                    <text>-</text>
+                </inputEntry>
+                <inputEntry id="capitalRule1">
+                    <text>-</text>
+                </inputEntry>
+                <outputEntry id="resultRule1">
+                    <text>true</text>
+                </outputEntry>
+                <outputEntry id="innResultRule1">
+                    <text>"Компания является ИП"</text>
+                </outputEntry>
+                <outputEntry id="regionResultRule1">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="capitalResultRule1">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="residentResultRule1">
+                    <text>"OK"</text>
+                </outputEntry>
+            </rule>
+            <rule id="rule2">
+                <inputEntry id="innRule2">
+                    <text>-</text>
+                </inputEntry>
+                <inputEntry id="regionRule2">
+                    <text>24</text>
+                </inputEntry>
+                <inputEntry id="capitalRule2">
+                    <text>-</text>
+                </inputEntry>
+                <outputEntry id="resultRule2">
+                    <text>true</text>
+                </outputEntry>
+                <outputEntry id="innResultRule2">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="regionResultRule2">
+                    <text>"Компания находится в запрещенном регионе"</text>
+                </outputEntry>
+                <outputEntry id="capitalResultRule2">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="residentResultRule2">
+                    <text>"OK"</text>
+                </outputEntry>
+            </rule>
+            <rule id="rule3">
+                <inputEntry id="innRule3">
+                    <text>-</text>
+                </inputEntry>
+                <inputEntry id="regionRule3">
+                    <text>-</text>
+                </inputEntry>
+                <inputEntry id="capitalRule3">
+                    <text>&lt; 5000000</text>
+                </inputEntry>
+                <outputEntry id="resultRule3">
+                    <text>true</text>
+                </outputEntry>
+                <outputEntry id="innResultRule3">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="regionResultRule3">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="capitalResultRule3">
+                    <text>"Капитал компании меньше 5 000 000"</text>
+                </outputEntry>
+                <outputEntry id="residentResultRule3">
+                    <text>"OK"</text>
+                </outputEntry>
+            </rule>
+            <rule id="rule4">
+                <inputEntry id="innRule4">
+                    <text>starts with(inn, "9909")</text>
+                </inputEntry>
+                <inputEntry id="regionRule4">
+                    <text>-</text>
+                </inputEntry>
+                <inputEntry id="capitalRule4">
+                    <text>-</text>
+                </inputEntry>
+                <outputEntry id="resultRule4">
+                    <text>true</text>
+                </outputEntry>
+                <outputEntry id="innResultRule4">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="regionResultRule4">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="capitalResultRule4">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="residentResultRule4">
+                    <text>"Компания не является резидентом РФ"</text>
+                </outputEntry>
+            </rule>
+            <rule id="rule5">
+                <inputEntry id="innRule5">
+                    <text>-</text>
+                </inputEntry>
+                <inputEntry id="regionRule5">
+                    <text>-</text>
+                </inputEntry>
+                <inputEntry id="capitalRule5">
+                    <text>-</text>
+                </inputEntry>
+                <outputEntry id="resultRule5">
+                    <text>false</text>
+                </outputEntry>
+                <outputEntry id="innResultRule5">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="regionResultRule5">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="capitalResultRule5">
+                    <text>"OK"</text>
+                </outputEntry>
+                <outputEntry id="residentResultRule5">
+                    <text>"OK"</text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+</definitions>
