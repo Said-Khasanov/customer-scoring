@@ -11,7 +11,15 @@
 
 `git clone https://github.com/Said-Khasanov/customer-scoring`
 
-Запустить скрипт **run.sh** (run.bat для Windows)
+Выполнить команды
+
+`cd customer-scoring`
+
+`mvn clean install`
+
+`docker compose up -d`
+
+Или запустить скрипт **run.sh** (run.bat для Windows) 
 
 
 # Endpoint для оценки
