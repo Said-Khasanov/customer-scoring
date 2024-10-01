@@ -5,7 +5,7 @@ spring:
     dmn-model-file: /customer_scoring.dmn
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/dev
+    url: jdbc:postgresql://postgres_db:5432/dev
     username: admin
     password: admin
 

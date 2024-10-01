@@ -9,6 +9,8 @@ import ru.khasanov.customerscoring.entity.Customer;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface CustomerMapper {
     Customer toEntity(CustomerRequestTo customerRequestTo);
+
     Customer toEntity(CustomerResponseTo customerResponseTo);
+
     CustomerResponseTo toResponseTo(Customer customer);
 }
